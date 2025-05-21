@@ -8,6 +8,22 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(316deg, var(--ifm-color-secondary), var(--ifm-color-primary));
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+  color: white;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @media screen and (max-width: 996px) {
@@ -20,4 +36,122 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--ifm-background-color);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logoContainer {
+  order: 2;
+}
+
+.authButtons {
+  order: 1;
+  display: flex;
+  gap: 1rem;
+}
+
+.navButton {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.loginButton {
+  color: var(--ifm-color-secondary);
+  border: 1px solid var(--ifm-color-secondary);
+}
+
+.loginButton:hover {
+  background-color: var(--ifm-color-secondary-light);
+  color: white;
+}
+
+.signupButton {
+  background-color: var(--ifm-color-secondary);
+  color: white;
+  border: 1px solid var(--ifm-color-secondary);
+}
+
+.signupButton:hover {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroTitle {
+  color: white !important;
+}
+
+.heroSubtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.searchBarContainer {
+  display: flex;
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  background-color: white;
+  border-radius: 30px;
+  padding: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.searchBarInput {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background-color: transparent;
+  color: var(--ifm-text-color);
+}
+
+.searchBarInput::placeholder {
+  color: var(--ifm-color-gray-600);
+}
+
+.searchBarButton {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.searchBarButton:hover {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+.browseButton {
+  background-color: white !important;
+  color: var(--ifm-color-primary) !important;
+  border: 1px solid var(--ifm-color-primary) !important;
+  box-shadow: none;
+}
+
+.browseButton:hover {
+  background-color: var(--ifm-background-color) !important;
+  color: var(--ifm-color-primary-dark) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
 }

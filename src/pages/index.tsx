@@ -3,25 +3,57 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
+// For the search input state
+import {useState} from 'react'; 
+// For navigation to the search page
+import {useHistory} from '@docusaurus/router'; 
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
+  const [searchValue, setSearchValue] = useState('');
+  const history = useHistory();
+
+  const handleSearchSubmit = (e?: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
+    if (e) e.preventDefault();
+    if (searchValue.trim() !== '') {
+      history.push(`/search?q=${encodeURIComponent(searchValue)}`);
+    }
+  };
+
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+      <div className={clsx('container', styles.heroContainer)}>
+        <Heading as="h1" className={clsx("hero__title", styles.heroTitle)}>
+          How can we help?
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className={clsx("hero__subtitle", styles.heroSubtitle)}>
+          Search our knowledge base or browse categories.
+        </p>
+        
+        {/* Search Bar Implementation */}
+        <form className={styles.searchBarContainer} onSubmit={handleSearchSubmit}>
+          <input 
+            type="search" 
+            className={styles.searchBarInput}
+            placeholder="Search FAQs..."
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            aria-label="Search"
+          />
+          <button type="submit" className={styles.searchBarButton}>
+            Search
+          </button>
+        </form>
+
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            className={clsx("button button--lg", styles.browseButton)}
+            to="/docs/intro"> 
+            Browse FAQs
           </Link>
         </div>
       </div>
@@ -33,11 +65,10 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title} - FAQ & Help Center`}
+      description="Find answers to your questions and learn more about our product.">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
       </main>
     </Layout>
   );
