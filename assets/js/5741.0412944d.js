@@ -1,0 +1,1 @@
+(self.webpackChunkwikiwant_2_c=self.webpackChunkwikiwant_2_c||[]).push([[5741],{5741:()=>{}}]);

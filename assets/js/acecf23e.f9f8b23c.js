@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwikiwant_2_c=self.webpackChunkwikiwant_2_c||[]).push([[1903],{1912:t=>{t.exports=JSON.parse('{"blogBasePath":"/wikiwant2c/blog","blogTitle":"Blog","authorsListPath":"/wikiwant2c/blog/authors"}')}}]);

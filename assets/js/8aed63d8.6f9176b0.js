@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwikiwant_2_c=self.webpackChunkwikiwant_2_c||[]).push([[8168],{1370:t=>{t.exports=JSON.parse('{"metadata":{"permalink":"/wikiwant2c/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
