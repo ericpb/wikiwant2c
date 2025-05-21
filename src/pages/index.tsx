@@ -7,22 +7,8 @@ import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
-// For the search input state
-import {useState} from 'react'; 
-// For navigation to the search page
-import {useHistory} from '@docusaurus/router'; 
-
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
-  const [searchValue, setSearchValue] = useState('');
-  const history = useHistory();
-
-  const handleSearchSubmit = (e?: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
-    if (e) e.preventDefault();
-    if (searchValue.trim() !== '') {
-      history.push(`/search?q=${encodeURIComponent(searchValue)}`);
-    }
-  };
 
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
@@ -31,24 +17,9 @@ function HomepageHeader() {
           How can we help?
         </Heading>
         <p className={clsx("hero__subtitle", styles.heroSubtitle)}>
-          Search our knowledge base or browse categories.
+          Search our knowledge base using the search bar in the navigation menu or browse categories below.
         </p>
         
-        {/* Search Bar Implementation */}
-        <form className={styles.searchBarContainer} onSubmit={handleSearchSubmit}>
-          <input 
-            type="search" 
-            className={styles.searchBarInput}
-            placeholder="Search FAQs..."
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-            aria-label="Search"
-          />
-          <button type="submit" className={styles.searchBarButton}>
-            Search
-          </button>
-        </form>
-
         <div className={styles.buttons}>
           <Link
             className={clsx("button button--lg", styles.browseButton)}

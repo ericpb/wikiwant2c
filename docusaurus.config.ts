@@ -64,17 +64,17 @@ const config: Config = {
     ],
   ],
 
-  plugins: [
+  themes: [
     [
-      '@easyops-cn/docusaurus-search-local',
+      require.resolve('@easyops-cn/docusaurus-search-local'),
       {
-        // these are all optional—defaults shown
         indexDocs: true,
         indexPages: false,
         indexBlog: false,
         language: 'en',
         highlightSearchTermsOnTargetPage: true,
         explicitSearchResultPath: true,
+        hashed: true,
       },
     ],
   ],
@@ -88,7 +88,7 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      title: 'JustCollabs',
+      title: 'FAQs',
       logo: {
         alt: 'JustCollabs Logo',
         src: 'img/logo.png',
@@ -98,7 +98,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'FAQs',
+          label: 'Index',
         },
         {
           href: 'https://justcollabs.com',
